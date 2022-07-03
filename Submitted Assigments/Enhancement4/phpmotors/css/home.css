@@ -1,0 +1,41 @@
+:root {
+    /* Color Scheme */
+    --first-color: #bababa;
+    --second-color: #8d8d8d;
+    --third-color: #a6cbeb;
+    --fourth-color: #4c96d7;
+    --fifth-color: #3a3a3a;
+    --sixth-color: #ffffff;
+  }
+#addDescription {
+    padding-left: 3em;
+}  
+#addDescription h2 {
+    color: var(--fourth-color);
+    margin-bottom: 0;
+}
+#addDescription p {
+    color: var(--fourth-color);
+    margin-top: 0;
+    text-align: left;
+}
+#addDescription button {
+    background-color: var(--fourth-color);
+    color: var(--fifth-color);
+    border: var(--fifth-color) solid 1px;
+    width: fit-content;
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+.top-left {
+    position: absolute;
+    top: 1em;
+    left: 16px;
+}
+#delorean {
+    max-width: 100%;
+    height: auto;
+}

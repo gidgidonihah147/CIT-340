@@ -1,0 +1,51 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+#image-display {
+    display: inline-block;
+    text-align: center;
+}
+
+#image-display li {
+    margin-bottom: .5em;
+    border: 1px #ccc solid;
+    list-style-type: none;
+    width: 100%;
+}
+
+#image-display img {
+    max-width: 100%;
+}
+
+@media only screen and (min-width:786px) {
+
+    /* For vehicle display in classification view */
+    #image-display {
+        text-align: center;
+        width: 90%;
+        margin: auto;
+    }
+
+    #image-display li {
+        list-style-type: none;
+        display: inline-block;
+        font-size: 15px;
+        padding-right: 5px;
+        border: 5px solid black;
+        width: 50%;
+        margin: auto;
+        height: auto;
+    }
+
+    #image-display img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}

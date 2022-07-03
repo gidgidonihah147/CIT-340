@@ -1,0 +1,62 @@
+:root {
+    /* Color Scheme */
+    --first-color: #bababa;
+    --second-color: #8d8d8d;
+    --third-color: #a6cbeb;
+    --fourth-color: #4c96d7;
+    --fifth-color: #3a3a3a;
+    --sixth-color: #ffffff;
+}
+
+.carDetails {
+    border: black solid 2px;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+}
+
+@media only screen and (min-width:786px) {
+    .carDetails {
+        display: inline-flex;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+    }
+
+    .carDetails P {
+        max-width: 75%;
+        text-align: center;
+        margin: auto;
+    }
+
+    .carDetails div {
+        background-color: var(--second-color);
+        width: 100%;
+    }
+
+    .carDetails img {
+        width: 50%;
+        max-height: 786px;
+    }
+
+    .thumbnail img {
+        text-align: center;
+        display: inline-flex;
+        margin-left: 25%;
+        transition: 0.5s all ease-in-out;
+        max-width: 100px;
+        max-height: 100px;
+        z-index: 1;
+      }
+    .thumbnail img:hover {
+        transform: scale(3);
+    }
+}

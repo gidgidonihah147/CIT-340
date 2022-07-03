@@ -1,0 +1,18 @@
+.userInfo{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    border: #3a3a3a solid 2px;
+    background-color: var(--third-color);
+    border-radius: 25px;
+}
+.userPw{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    border: #3a3a3a solid 2px;
+    background-color: var(--third-color);
+    border-radius: 25px;
+}

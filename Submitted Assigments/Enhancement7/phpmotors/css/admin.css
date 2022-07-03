@@ -1,0 +1,53 @@
+:root {
+    /* Color Scheme */
+    --first-color: #bababa;
+    --second-color: #8d8d8d;
+    --third-color: #a6cbeb;
+    --fourth-color: #4c96d7;
+    --fifth-color: #3a3a3a;
+    --sixth-color: #ffffff;
+  }
+
+  h1 {
+    margin: auto;
+    text-align: center;
+  }
+  form {
+    margin: auto;
+    text-align: center;
+  }
+  input {
+    width: 20%;
+  }
+  h2 {
+    margin: auto;
+    text-align: center;
+  }
+  main ul{
+    list-style-type: none;
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    border: #3a3a3a solid 2px;
+    background-color: var(--third-color);
+    border-radius: 25px;
+  }
+  .vehicleMgmt {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    border: #3a3a3a solid 2px;
+    background-color: var(--third-color);
+    border-radius: 25px;
+  }
+  .acctMgmt {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    border: #3a3a3a solid 2px;
+    background-color: var(--third-color);
+    border-radius: 25px;
+  }
