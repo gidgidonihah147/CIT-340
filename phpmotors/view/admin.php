@@ -46,6 +46,16 @@ if (!$_SESSION['loggedin']) {
             echo "</div>";
         }
         ?>
+        <?php
+        if ($_SESSION['clientData']['clientLevel'] > 1) {
+            echo "<br>";
+            echo "<div class='imgMgmt'>";
+            echo "<h2>Image Management</h2>";
+            echo "<p>Use this link to manage the image inventory</p>";
+            echo "<a href = '/phpmotors/uploads/index.php'>Image Management</a>";
+            echo "</div>";
+        }
+        ?>
         <br>
         <div class="acctMgmt">
             <h2>Account Management</h2>

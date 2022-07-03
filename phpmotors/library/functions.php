@@ -21,8 +21,8 @@ function navList($classifications)
     $navList = '<ul>';
     $navList .= "<li><a href='/phpmotors/' title='View the PHP Motors home page'>Home</a></li>";
     foreach ($classifications as $classification) {
-        $navList .= "<li><a href='/phpmotors/vehicles/?action=classification&classificationName="
-            . urlencode($classification['classificationName']) .
+        $navList .= "<li><a href='/phpmotors/vehicles/?action=classification&classificationId="
+            . urlencode($classification['classificationId']) .
             "' title='View our $classification[classificationName] lineup of vehicles'>$classification[classificationName]</a></li>";
     }
     $navList .= '</ul>';
@@ -63,13 +63,13 @@ function buildVehiclesHTML($vehiclesDetail)
 {
     $dv = "<h1>$vehiclesDetail[invMake] $vehiclesDetail[invModel]</h1>";
     $dv .= "<section class = 'carDetails'>";
-    $dv .= "<img src='$vehiclesDetail[invImage]' alt='$vehiclesDetail[invMake]-$vehiclesDetail[inModel]'>";
+    $dv .= "<img src='$vehiclesDetail[invImage]' alt='$vehiclesDetail[invMake]-$vehiclesDetail[invModel]'>";
     $dv .= "<div class = 'details'>";
     $dv .= '<h2>Price: $' . number_format($vehiclesDetail['invPrice']) . '</h2>';
-    $dv .= "<h3>$vehiclesDetail[invMake] $vehiclesDetail[invModel] Details</h3>";
+    $dv .= "<h3>$vehiclesDetail[invYear] $vehiclesDetail[invMake] $vehiclesDetail[invModel] Details</h3>";
     $dv .= "<p>$vehiclesDetail[invDescription]</p><br>";
     $dv .= "<p>Color: $vehiclesDetail[invColor]</p><br>";
-    $dv .= "<p>Number in Stock: $vehiclesDetail[invStock]</p>";
+    $dv .= "<p>Miles: $vehiclesDetail[invMiles]</p><br>";
     $dv .= "</div>";
     $dv .= '</section>';
     return $dv;

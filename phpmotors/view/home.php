@@ -33,7 +33,7 @@
             </p>
             <img class="ownButton" src="images/site/own_today.png" alt="own today button">
         </div>
-        <img src="images/vehicles/delorean.jpg" alt="delorean picture" id="delorean">
+        <img src="images/vehicles/1982-dmc-delorean.jpg" alt="delorean picture" id="delorean">
         <div class="description">
             <div class="reviews">
                 <h3>DMC Delorean Reviews</h3>

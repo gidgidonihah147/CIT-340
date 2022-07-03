@@ -59,16 +59,16 @@ $classList .= "</select>";
                                                                                                                                   echo "Value='$clientDescription'";
                                                                                                                                 } ?>></textarea> <br>
         </div>
-        <div class="clientImagePath">
-          <label for="clientImagePath">Image Path:</label><br>
-          <input type="text" id="clientImagePath" name="clientImagePath" value="/phpmotors/images/no-image.png" required <?php if (isset($clientImagePath)) {
-                                                                                                                            echo "Value='$clientImagePath'";
+        <div class="clientYear">
+          <label for="clientYear">Vehicle Year:</label><br>
+          <input type="text" id="clientYear" name="clientYear" placeholder="2022" required <?php if (isset($clientYear)) {
+                                                                                                                            echo "Value='$clientYear'";
                                                                                                                           } ?>> <br>
         </div>
-        <div class="clientThumbnailPath">
-          <label for="clientThumbnailPath">Thumbnail Path:</label><br>
-          <input type="text" id="clientThumbnailPath" name="clientThumbnailPath" value="/phpmotors/images/no-image.png" required <?php if (isset($clientThumbnailPath)) {
-                                                                                                                                    echo "Value='$clientThumbnailPath'";
+        <div class="clientMiles">
+          <label for="clientMiles">Vehicle Miles:</label><br>
+          <input type="text" id="clientMiles" name="clientMiles" placeholder="5" required <?php if (isset($clientMiles)) {
+                                                                                                                                    echo "Value='$clientMiles'";
                                                                                                                                   } ?>> <br>
         </div>
         <div class="clientPrice">

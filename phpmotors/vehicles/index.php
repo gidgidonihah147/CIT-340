@@ -64,19 +64,18 @@ switch ($action) {
     $clientMake = trim(filter_input(INPUT_POST, 'clientMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientModel = trim(filter_input(INPUT_POST, 'clientModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientDescription = trim(filter_input(INPUT_POST, 'clientDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $clientImagePath = trim(filter_input(INPUT_POST, 'clientImagePath', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $clientThumbnailPath = trim(filter_input(INPUT_POST, 'clientThumbnailPath', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientYear = trim(filter_input(INPUT_POST, 'clientYear', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientMiles = trim(filter_input(INPUT_POST, 'clientMiles', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientPrice = trim(filter_input(INPUT_POST, 'clientPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
     $clientColor = trim(filter_input(INPUT_POST, 'clientColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $clientStock = trim(filter_input(INPUT_POST, 'clientStock', FILTER_SANITIZE_NUMBER_INT));
     if (
-      empty($classificationId) || empty($clientMake) || empty($clientModel) || empty($clientDescription) || empty($clientImagePath) || empty($clientThumbnailPath) || empty($clientPrice) || empty($clientColor) || empty($clientStock)
+      empty($classificationId) || empty($clientMake) || empty($clientModel) || empty($clientDescription) || empty($clientYear) || empty($clientMiles) || empty($clientPrice) || empty($clientColor)
     ) {
       $message = '<p>Please provide information for all empty form fields.</p>';
       include '../view/add-vehicle.php';
       exit;
     }
-    $regOutcome = submitVehicle($classificationId, $clientMake, $clientModel, $clientDescription, $clientImagePath, $clientThumbnailPath, $clientPrice, $clientColor, $clientStock);
+    $regOutcome = submitVehicle($classificationId, $clientMake, $clientModel, $clientDescription, $clientYear, $clientMiles, $clientPrice, $clientColor);
     // Check and report the result
     if ($regOutcome === 1) {
       $message = "<p>Thanks for submitting a new vehicle.</p>";
@@ -115,21 +114,20 @@ switch ($action) {
     $clientMake = trim(filter_input(INPUT_POST, 'clientMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientModel = trim(filter_input(INPUT_POST, 'clientModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientDescription = trim(filter_input(INPUT_POST, 'clientDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $clientImagePath = trim(filter_input(INPUT_POST, 'clientImagePath', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $clientThumbnailPath = trim(filter_input(INPUT_POST, 'clientThumbnailPath', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientYear = trim(filter_input(INPUT_POST, 'clientYear', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientMiles = trim(filter_input(INPUT_POST, 'clientMiles', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientPrice = trim(filter_input(INPUT_POST, 'clientPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
     $clientColor = trim(filter_input(INPUT_POST, 'clientColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $clientStock = trim(filter_input(INPUT_POST, 'clientStock', FILTER_SANITIZE_NUMBER_INT));
-    $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+    $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     if (
-      empty($classificationId) || empty($clientMake) || empty($clientModel) || empty($clientDescription) || empty($clientImagePath) || empty($clientThumbnailPath) || empty($clientPrice) || empty($clientColor) || empty($clientStock) || empty($invId)
+      empty($classificationId) || empty($clientMake) || empty($clientModel) || empty($clientDescription) || empty($clientYear) || empty($clientMiles) || empty($clientPrice) || empty($clientColor) || empty($invId)
     ) {
       $message = '<p>Please provide information for all empty form fields.</p>';
       include '../view/vehicle-update.php';
       exit;
     }
 
-    $updateResult = updateVehicle($classificationId, $clientMake, $clientModel, $clientDescription, $clientImagePath, $clientThumbnailPath, $clientPrice, $clientColor, $clientStock, $invId);
+    $updateResult = updateVehicle($classificationId, $clientMake, $clientModel, $clientDescription, $clientYear, $clientMiles, $clientPrice, $clientColor, $invId);
     // Check and report the result
     if ($updateResult) {
       $message =
@@ -140,11 +138,10 @@ switch ($action) {
           <li style = 'list-style-type: none; border: black solid 3px'>Make = $clientMake</li>
           <li style = 'list-style-type: none; border: black solid 3px'>Model = $clientModel</li>
           <li style = 'list-style-type: none; border: black solid 3px'>Description = $clientDescription</li>
-          <li style = 'list-style-type: none; border: black solid 3px'>Image Path = $clientImagePath</li>
-          <li style = 'list-style-type: none; border: black solid 3px'>Thumbnail Path = $clientThumbnailPath</li>
+          <li style = 'list-style-type: none; border: black solid 3px'>Image Path = $clientYear</li>
+          <li style = 'list-style-type: none; border: black solid 3px'>Thumbnail Path = $clientMiles</li>
           <li style = 'list-style-type: none; border: black solid 3px'>Price = $clientPrice</li>
           <li style = 'list-style-type: none; border: black solid 3px'>Color = $clientColor</li>
-          <li style = 'list-style-type: none; border: black solid 3px'>Stock Count = $clientStock</li>
         </ul>
       ";
       $_SESSION['message'] = $message;
@@ -158,7 +155,7 @@ switch ($action) {
     break;
 
   case 'del':
-    $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+    $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $invInfo = getInvItemInfo($invId);
     if (count($invInfo) < 1) {
       $message = 'Sorry, no vehicle information could be found.';
@@ -172,7 +169,7 @@ switch ($action) {
     // Filter and store the data
     $clientMake = trim(filter_input(INPUT_POST, 'clientMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientModel = trim(filter_input(INPUT_POST, 'clientModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-    $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+    $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
     $deleteResult = deleteVehicle($invId);
     // Check and report the result
@@ -190,10 +187,10 @@ switch ($action) {
     break;
 
   case 'classification':
-    $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $vehicles = getVehiclesByClassification($classificationName);
+    $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $vehicles = getVehiclesByClassification($classificationId);
     if (!count($vehicles)) {
-      $message = "<p class='notice'>Sorry, no $classificationName could be found.</p>";
+      $message = "<p class='notice'>Sorry, no $classificationId could be found.</p>";
     } else {
       $vehicleDisplay = buildVehiclesDisplay($vehicles);
     }
@@ -202,9 +199,9 @@ switch ($action) {
 
     case 'vehicleView':
       // Filter the input
-      $vehicleId = filter_input(INPUT_GET, 'Vehicle', FILTER_SANITIZE_NUMBER_INT);
+      $vehicleId = filter_input(INPUT_GET, 'Vehicle', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-      // Get the vehicles informations
+      // Get the vehicles information
       $vehiclesDetail = getVehicleInfo($vehicleId);
 
       // Get the vehicle thumbnails

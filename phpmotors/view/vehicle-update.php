@@ -79,21 +79,21 @@ $classList .= "</select>";
                                                                                         } ?>>
             <br>
           </div>
-          <div class="clientImagePath">
-            <label for="clientImagePath">Image Path:</label><br>
-            <input type="text" id="clientImagePath" name="clientImagePath" value="/phpmotors/images/vehicles/[imagename.xxx]" required <?php if (isset($clientImagePath)) {
-                                                                                                                              echo "Value='$clientImagePath'";
-                                                                                                                            } elseif (isset($invInfo['invImagePath'])) {
-                                                                                                                              echo "value='$invInfo[invImagePath]'";
+          <div class="clientYear">
+            <label for="clientYear">Year:</label><br>
+            <input type="text" id="clientYear" name="clientYear" placeholder="2022"" required <?php if (isset($clientYear)) {
+                                                                                                                              echo "Value='$clientYear'";
+                                                                                                                            } elseif (isset($invInfo['invYear'])) {
+                                                                                                                              echo "value='$invInfo[invYear]'";
                                                                                                                             }
                                                                                                                             ?>> <br>
           </div>
-          <div class="clientThumbnailPath">
-            <label for="clientThumbnailPath">Thumbnail Path:</label><br>
-            <input type="text" id="clientThumbnailPath" name="clientThumbnailPath" value="/phpmotors/images/vehicles/[imagename.xxx]" required <?php if (isset($clientThumbnailPath)) {
-                                                                                                                                      echo "Value='$clientThumbnailPath'";
-                                                                                                                                    } elseif (isset($invInfo['invThumbnailPath'])) {
-                                                                                                                                      echo "value='$invInfo[invThumbnailPath]'";
+          <div class="clientMiles">
+            <label for="clientMiles">Miles:</label><br>
+            <input type="text" id="clientMiles" name="clientMiles" placeholder="5" required <?php if (isset($clientMiles)) {
+                                                                                                                                      echo "Value='$clientMiles'";
+                                                                                                                                    } elseif (isset($invInfo['invMiles'])) {
+                                                                                                                                      echo "value='$invInfo[invMiles]'";
                                                                                                                                     }
                                                                                                                                     ?>> <br>
           </div>
@@ -114,15 +114,6 @@ $classList .= "</select>";
                                                                                                   echo "value='$invInfo[invColor]'";
                                                                                                 }
                                                                                                 ?>> <br>
-          </div>
-          <div class="clientStock">
-            <label for="clientStock">Vehicle Stock</label><br>
-            <input type="number" id="clientStock" name="clientStock" placeholder="1" required <?php if (isset($clientStock)) {
-                                                                                                echo "Value='$clientStock'";
-                                                                                              } elseif (isset($invInfo['invStock'])) {
-                                                                                                echo "value='$invInfo[invStock]'";
-                                                                                              }
-                                                                                              ?>> <br>
           </div>
         </div>
         <br>
